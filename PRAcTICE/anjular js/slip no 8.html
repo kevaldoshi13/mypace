@@ -1,0 +1,177 @@
+<html ng-app="mainApp">
+
+            <head>
+
+            <script src="angularjs/1.8.2/angular.js"></script>
+
+            </head> 
+
+<body ng-controller="studentController">
+
+ 
+
+<h2>Student Registration Details</h2>
+
+<div>
+
+ 
+
+<form name="studentForm" novalidate>
+
+<table border="1">
+
+<tr>
+
+<td>Enter first name:</td>
+
+<td><input name="firstName" type="text" ng-model="firstName" ng-pattern="/^[a-zA-Z]*$/" required>
+
+<span style="color:red"
+
+ng-show="studentForm.firstName.$dirty && studentForm.firstName.$invalid">
+
+<span ng-show="studentForm.firstName.$error.required">First Name is required.</span>
+
+<span style="color:red" ng-show="studentForm.firstName.$error.pattern">*Invalid First name.</span>
+
+</span>
+
+</td>
+
+</tr>
+
+ 
+
+<tr>
+
+<td>Enter last name: </td>
+
+<td><input name="lastName" type="text" ng-model="lastName" ng-pattern="/^[a-zA-Z]*$/" required>
+
+<span style="color:red" ng-show="studentForm.lastName.$dirty && studentForm.lastName.
+
+$invalid">
+
+<span ng-show="studentForm.lastName.$error.required">Last Name is required.</span>
+
+<span style="color:red" ng-show="studentForm.lastName.$error.pattern">*Invalid Last name.</span>
+
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Enter Age:
+
+</td>
+
+<td>
+
+<input type="text" ng-model="age" name="age"
+
+ng-pattern="/^(?:1[8-9]|[2-5][0-9]|50)$/" required/>
+
+<span style="color:red" ng-show="studentForm.age.$dirty && studentForm.age.$invalid">
+
+<span ng-show="studentForm.age.$error.required">Age is required.</span>
+
+<span style="color:red" ng-show="studentForm.age.$error.pattern">*Invalid Age. Valid
+
+18-50</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<button ng-click="reset()">Reset</button>
+
+</td>
+
+<td>
+
+<button ng-disabled="studentForm.firstName.$dirty && studentForm.firstName.$invalid || studentForm.lastName.$dirty && studentForm.lastName.$invalid||studentForm.age.$invalid && studentForm.age.$dirty" ng- click="submit()">Submit</button>
+
+</td> 
+
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+<div>
+
+ 
+
+<input type="number" ng-model="value"><br>
+
+<span>{{value|greet}}</span>
+
+</div>
+
+ 
+
+<script>
+
+var mainApp = angular.module("mainApp", []);
+
+mainApp.controller('studentController', function ($scope) {
+
+            $scope.reset = function () {
+
+                        $scope.firstName='angular';
+
+                        $scope.lastName='js';
+
+                        $scope.age='';
+
+            }
+
+            $scope.reset();
+
+});
+
+ 
+
+mainApp.filter('greet', function() {
+
+  return function(input) {
+
+    if (input < 12) {
+
+      return 'Good Morning';
+
+    } else if (input >= 12 && input <= 17) {
+
+      return 'Good Afternoon';
+
+    } else if (input > 17 && input <= 24) {
+
+      return 'Good Evening';
+
+    } else {
+
+      return "I'm not sure what time it is!";
+
+    }
+
+  };
+
+});
+
+</script>
+
+</body>
+
+</html>

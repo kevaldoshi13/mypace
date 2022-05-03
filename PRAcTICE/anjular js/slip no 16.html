@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="angularjs/1.2.32/angular.min.js"></script>
+<script>
+var app = angular.module("myApp", []);
+app.controller('studCtrl', ['$scope', function ($scope) {
+$scope.showStudent = function () {
+$scope.stud = [
+{ name: 'Amit', city: 'pune' },
+{ name: 'Sumit', city: 'pune' },
+{ name: 'Rahul', city: 'mumbai' },
+{ name: 'sachin', city: 'mumbai' },
+];
+}
+}]);
+</script>
+<style>
+    body{
+        background-color: aquamarine;
+    }
+    table{
+        background-color: blue;
+    }
+</style>
+</head>
+<body ng-app="myApp" ng-controller="studCtrl">
+<form>
+<div ng-controller="studCtrl">
+List of students living in pune<br>
+<table border="2">
+<tr ng-repeat="x in stud | filter:'mumbai'">
+<td>{{x.name}}</td>
+<td>{{x.city}}</td>
+</tr>
+</table>
+</div>
+</div>
+<input type="button" ng-click="showStudent()" value="Click Here"> </button>
+</form>
+</body>
+</html>

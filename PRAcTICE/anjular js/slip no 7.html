@@ -1,0 +1,85 @@
+<html ng-app="mainApp">
+<head>
+	<script src="D:\Documents\SYBBA-CA\anjular js\angularjs\1.2.32\angular.js"></script>
+</head>
+<body ng-controller="studentcontroller">
+<h2>Student registration details</h2>
+<div>
+	<form name="studentForm"novalidate>
+		<table border="1">
+		<tr>
+		<td>enter first name </td>
+		<td><input name="firstName' type="text" ng-model="firstName" ng-pattern="/^[a-zA-Z]*$/"required>
+		<span style="color:blue"
+		ng-show="studentForm.firstName.$dirty && studentForm.firstName.$invalid">
+		<span ng-show="studentForm.firstName.$error.required">First Name is required.</span>
+		<span styple="color:red" ng-show="studentForm.firstName.$error.pattern">*invalid first name.</span>
+		</td>
+		</tr>
+		<tr>
+		<td>Enter last name:</td>
+		<td><input name:"lastName" type="text" ng-model="lastName" ng-pattern="/^[a-zA-Z]*$/"required>
+		<span style="color:red" ng-show="studentForm.lastName.$dirty && studentForm.lastName.$invalid">
+		<span ng-show="studentForm.lastName.$error.required">Last Name is required.</span>
+		<span style="color:red" ng-show="studentForm.lastName.$error.pattern">*invalid last name.</span>
+		</span>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		enter age:
+		</td>
+		<td>
+		<input type="text" ng-model="age" name="age"
+		ng-pattern="/^(?:1[8-9]|[2-5][0-9]|50$/"required/>
+		<span ng-show="studentForm.age.$error.required">age is required.</span>
+		<span style="color:red" ng-show="studentForm.sge.$error.pattern">*invalid age.valid 18-50</span>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<button ng-click="reset()"> Reset </button>
+		</td>
+		<td>
+		<button ng-disabled="studentForm.firstName.$dirty && studentForm.firstName.$invalid||studentForm.lastName.$dirty &&
+		studentForm.lastName.$invalid||studentForm.age.$invalid && studentForm.age.$dirty" ng-click="submit">submit</button>
+		</td>
+		</tr>
+		</table>
+		</form>
+		</div>
+		<div>
+		
+		<input type="number" ng-model="value"><br>
+		<span> {{value|greet}}</span>
+		</div>
+		<script>
+		var mainApp =angular.module("mainApp",[]);
+		mainApp.controller('studentcontroller',function($scope) {
+		$scope.reset = function() {
+		$scope.firstName='adhira';
+		$scope.lastName='sharma';
+		$scope.age='';
+		}
+		$scope.reset();
+		});
+		
+		mainApp.filter('greet',function(){
+		return function(input){
+		if(input<12){
+		return 'good morning';
+		} else if(input >=12 && input<= 17) {
+		return 'good afternoon';
+		} else if(input>17 && input <=24) {
+		return 'Good evening';
+		} else {	
+		return "i'm not sure what time it is";
+		}
+		};
+		});
+		</script>
+		</body>
+		</html>
+		
+		
+		

@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <script src="source/angular.js"></script>
+    </head>
+    <style>
+            body{
+            margin:2%;
+            font-size:120%;
+            background-color:pink;
+        }
+    </style>
+    <body ng-app="myapp" ng-controller="listcontroller">
+    <h1 align='center'>stduent details</h1>
+    <table border=1 align="center">
+        <thead>
+            <tr>
+                <th>s.no</th>
+                <th>name</th>
+                <th>city</th>
+                <th>mobile no.</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="item in itemsDetails">
+            <td>{{item.sno}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.mobileno}}</td>
+        </tr>
+    </table>
+    </body>
+    <script>
+        var app= angular.module('myapp',[])
+        app.controller(
+            'listcontroller', function($scope) {
+
+                $scope.itemsDetails = [
+                    {
+                        sno:1,
+                        name:'adhira',
+                        city:'pune',
+                        mobileno:9978651865
+                    },
+                    {
+                        sno:2,
+                        name:'abira',
+                        city:'mumbai',
+                        mobileno:7678908765,
+                    },
+                    {
+                        sno:3,
+                        name:'akira',
+                        city:'satara',
+                        mobileno:8976567897,
+                    },
+                    {
+                        sno:4,
+                        name:'amira',
+                        city:'pune',
+                        mobileno: 7678976545,
+                    },
+                ];
+                
+            }
+        );
+    </script>
+</html>

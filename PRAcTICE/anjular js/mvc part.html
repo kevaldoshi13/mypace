@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="source/angular.js"></script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="MyController" >
+        <h2>Hello {{helloToAll}} !</h2>
+    </div>
+    <script>
+        angular.module("myapp", [])
+            .controller("MyController", function($scope) 
+            {
+                $scope.helloToAll = {};
+                $scope.helloToAll = "SYBBA-CA STUDENTS WELCOME YOU ALL!!!!!";
+            });
+    </script>
+</body> 
+</html>

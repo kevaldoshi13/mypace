@@ -1,0 +1,206 @@
+<html>
+
+<head>
+
+   <script src="angularjs/1.2.32/angular.min.js"></script>
+
+   <script src="angularjs/1.2.32/angular-route.min.js"></script>
+</head>
+
+
+
+<h1> SYBCA Syllabus</H1>
+
+
+
+<div ng-view></div>
+
+
+
+<body>
+
+
+
+   <div ng-app="mainApp">
+
+      <p><a href="#dm">301.Digital Marketing</a></p>
+
+      <p><a href="#ds">302.Data Structure</a></p>
+
+      <p><a href="#ajs">303.AngularJS</a></p>
+
+
+
+
+
+      <div ng-view></div>
+
+      <script type="text/ng-template" id="Digital Marketing.html">
+
+            <h2> Digital Marketing </h2>
+
+                                   
+
+                                    <p>
+
+                                    Unit 1.Introduction of Digital Marketing <br>
+
+                                    Unit 2.<br>
+
+                                    Unit 3.<br>
+
+                                    </p>
+
+                                   
+
+            {{message}}
+
+         </script>
+
+
+
+      <script type="text/ng-template" id="Data Structure.html">
+
+            <h2> Data Structure </h2>
+
+                                  
+
+                                    <p>
+
+                                    Unit 1.Introduction of Data Structure<br>
+
+                                    Unit 2. <br>
+
+                                    Unit 3.<br>
+
+                                    </p>
+
+            {{message}}
+
+         </script>
+
+
+
+      <script type="text/ng-template" id="AngularJS.html">
+
+            <h2> AngularJS </h2>
+
+                                   
+
+                                    <p>
+
+                                    Unit 1.Introduction of AngularJS<br>
+
+                                    Unit 2.<br>
+
+                                    Unit 3.<br>
+
+                                    </p>
+
+            {{message}}
+
+         </script>
+
+   </div>
+
+
+
+   <script>
+
+      var mainApp = angular.module("mainApp", ['ngRoute']);
+
+      mainApp.config(['$routeProvider', function ($routeProvider) {
+
+         $routeProvider
+
+            .when('/dm', {
+
+               templateUrl: 'Digital Marketing.html',
+
+               controller: 'dmController'
+
+            })
+
+            .when('/ds', {
+
+               templateUrl: 'Data Structure.html',
+
+               controller: 'dsController'
+
+            })
+
+
+
+            .when('/ajs', {
+
+               templateUrl: 'AngularJS.html',
+
+               controller: 'ajsController'
+
+            })
+
+      }]);
+
+
+
+      mainApp.controller('dmController', function ($scope) {
+
+         $scope.message = "This page will be used to disply Digital Marketing";
+
+      });
+
+
+
+      mainApp.controller('dsController', function ($scope) {
+
+         $scope.message = "This page will be used to disply Data Structure";
+
+      });
+
+
+
+      mainApp.controller('ajsController', function ($scope) {
+
+         $scope.message = "This page will be used to disply AngularJS";
+
+      });
+
+
+
+   </script>
+
+</body>
+
+</html>
+
+<!--
+
+   The ng-view directive simply creates a place holder where a corresponding view (HTML or ng-template view)   can be placed based on the configuration.
+
+ 
+
+The ng-template directive is used to create an HTML view using script tag. It contains id attribute which is used by $routeProvider to map a view with a controller.
+
+The ngRoute module helps your application to become a Single Page Application.
+
+        
+
+         $routeProvider you can define what page to display when a user clicks a link.
+
+        
+
+         Define the $routeProvider using the config method of your application.
+
+         Work registered in the config method will be performed when the application is loading.
+
+        
+
+         $routeProvider is defined as a function under config of mainApp module using key as '$routeProvider'.
+
+        
+
+         "controller" is used to set the corresponding controller for the view.
+
+                             
+
+  templateUrl can also be a function which returns the URL of an HTML template to be loaded and used for the directive. AngularJS will call the templateUrl function with two parameters: the element that the directive was called on, and an attr object associated with that element.-->

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  
+
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  
+
+  
+</head>
+<body ng-app="changeExample">
+    <p> </p>
+  <script>
+  angular.module('changeExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.counter = 0;
+      $scope.change = function() {
+        $scope.counter++;
+      };
+    }]);
+</script>
+<div ng-controller="ExampleController">
+        <p>are you developer: <strong>{{confirmed}}</strong> <strong><br>count : </strong>{{counter}}</p>
+    <input type="checkbox" ng-model="confirmed" ng-change="change()" id="ng-change-example1" />
+</div>
+</body>
+</html>

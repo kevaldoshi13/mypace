@@ -1,0 +1,54 @@
+<html>
+
+<script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- ng-repeat- it used to repeat a set of html code for a number of times-->
+<style>
+body
+{
+margin: 2%;
+font-size: 120%;
+background-color:pink;
+}
+</style>
+<body ng-app="myApp" ng-controller="ListController">
+<h1 align='center'>Bank Details</h1>
+<table border=1 align='center'> 
+<thead>
+<tr>
+<th>Bank Name</th>
+<th>MICR Code</th>
+<th>IFC Code</th>
+<th>Address</th>
+</tr>
+</thead>
+<tr ng-repeat="bank in bankDetails">
+<td> {{bank.bname}} </td>
+<td> {{bank.micr}} </td>
+<td> {{bank.ifc}} </td>
+<td> {{bank.address}} </td>
+</tr>
+</table>
+</body>
+<script>
+var app = angular.module('myApp', []);
+app.controller(
+'ListController', function($scope)
+{
+$scope.bankDetails =
+[
+{
+bname: 'SBI',
+micr: 345678908,
+ifc: 'SBIN0013527',
+address:'PUNE',
+},
+{
+bname: 'SBI',
+micr: 345678976,
+ifc: 'SBIN0013528',
+address:'Hadapsar',
+},
+];
+});
+</script>
+</HTML>

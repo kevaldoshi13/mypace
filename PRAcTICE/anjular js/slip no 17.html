@@ -1,0 +1,34 @@
+<html.
+<head> <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="mainApp" ng-controller="FilterController">
+<div ng-controller="FilterController">
+<div>
+enter the character
+<input type ="text" name="searchname" ng-model="searchname">
+<div ng-hide="users"></div>
+<table>
+<tr ng-repeat="a in users | filter : searchname" ng-show="searchname">
+<td> {{a.name}}</td>
+</tr>
+</table>
+</div>
+</div>
+<script>
+var mainApp = angular.module("mainApp",[]);
+mainApp.controller("FilterController",function($scope){
+$scope.users =[{
+name: "Red",
+}, {
+name: "Yellow",
+},{
+name: "Green",
+}, {
+name: "Brown",
+}, {
+name: "Pink",
+}];
+ });
+</script>
+</body>
+ </html>

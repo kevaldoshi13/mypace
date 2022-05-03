@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+    <body ng-app="myapp">
+    <div ng-controller="userctrl">
+       are you a developer 
+       <input type="checkbox" ng-model="isTrue" change="count=count+1"/>
+        Count:{{count}}
+        <p>{{isTrue}}</p>
+    </div>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller('userctrl',['$scope',function ($scope){
+            $scope.count=0;
+            $scope.change =function() {
+                $scope.count++;
+            }
+            $scope.isTrue = true;
+        }]);    
+    </script>
+    </body>
+</html>

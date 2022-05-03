@@ -1,0 +1,60 @@
+<html>
+<script src="/anjular js//source/angular.js">
+</script>
+<style>
+    body {
+        margin: 2%;
+        font-size: 120%;
+        background-color: pink;
+    }
+
+    h1 {
+        color: blue;
+    }
+</style>
+
+<body ng-app="myApp" ng-controller="myController">
+    <h1>ng-model directive</h1>
+    <div ng-app="myApp" ng-controller="myController" ng-init="number1=20; number2=30">
+        Number 1: <input type="number" ng-model="number1">
+        Number 2: <input type="number" ng-model="number2">
+        Result: {{ number1 + number2 }}
+    </div>
+    <br>
+    <h1>ng-bind directive</h4>
+        <div ng-app="myApp" ng-controller="myController">
+            Number 1: <input type="number" ng-model="number3" ng-change="add()" />
+            Number 2: <input type="number" ng-model="number4" ng-change="add()" />
+            <b>Addition=:</b> <span ng-bind="result1"></span>
+        </div>
+        <br><br>
+        <div ng-app="myApp" ng-init="myButton=true">
+            <button ng-disabled="myButton">Click Me!</button>
+            <br /><br />
+            <input type="checkbox" ng-model="myButton" />Button
+            <br /><br />
+            Disabled : {{ myButton }}
+        </div>
+        <div ng-app="myApp" ng-controller="myController">
+            <input type="button" value="Show Angular" ng-click="ShowHide()" />
+            <br><br>
+            <div ng-show="IsVisible">Welcome to my Channel</div>
+        </div>
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller(
+        'myController', function ($scope) {
+            $scope.number3 = 1;
+            $scope.number4 = 1;
+            $scope.add = function () {
+                $scope.result1 = ($scope.number3 + $scope.number4);
+            }
+            $scope.IsVisible = false;
+            $scope.ShowHide = function () {
+                $scope.IsVisible = true;
+            }
+        });
+</script>
+
+</html>

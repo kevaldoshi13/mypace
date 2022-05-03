@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Write a HTML code using AngularJS to generate the following output
+
+Undergraduate Courses (hint : use ng-repeat, ng-init directive)
+
+i. BBA(CA)
+
+ii. BCA(Science)
+
+iii. B.Sc.(Computer Science)
+
+Post Graduate Courses
+
+i. M.Sc.(Computer Science) 
+
+ii. M.Sc.(CA)
+
+iii. MCA -->
+    <script src="source/angular.js"></script>
+    <style>
+        div {
+            border: 1px solid green;
+            width: 100%;
+            height: 100px;
+            display: block;
+            margin-bottom: 10px;
+            text-align:left;
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body ng-app ng-init="courses=['BBA(CA)','BCA(Science)','B.Sc(Computer Science)']">
+    <h1> Undergraduate Courses </h1>
+    <ol type=i>
+        <li ng-repeat="name in courses">
+            {{name}}
+        </li>
+    </ol>
+    <h1> Post Graduate Courses </h1>
+        <div ng-init="postcourses=['MCA','M.Sc(CA)','M.Sc(Computer Science)']">
+    <ol type=i>
+        <li ng-repeat="name in postcourses ">
+            {{name}}
+        </li>
+    </ol>
+    </div>
+</body>
+</html>
